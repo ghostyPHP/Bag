@@ -42,4 +42,9 @@ abstract class AbstractBag implements AbstractBagContract
     {
         unset($this->items[$key]);
     }
+
+    public function count(): int
+    {
+        return count($this->items);
+    }
 }
