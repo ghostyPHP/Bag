@@ -23,14 +23,14 @@ abstract class AbstractBag implements AbstractBagContract
         return $this->items[$key];
     }
 
-    public function add(string $key, mixed $value): AbstractBagContract
+    public function add(string $key, mixed $value): static
     {
         $this->items[$key] = $value;
 
         return $this;
     }
 
-    public function replace(array $items): AbstractBagContract
+    public function replace(array $items): static
     {
         $this->items = $items;
 
@@ -42,7 +42,7 @@ abstract class AbstractBag implements AbstractBagContract
         return array_key_exists($key, $this->items);
     }
 
-    public function remove(string $key): AbstractBagContract
+    public function remove(string $key): static
     {
         unset($this->items[$key]);
 
