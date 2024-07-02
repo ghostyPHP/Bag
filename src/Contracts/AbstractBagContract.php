@@ -2,7 +2,7 @@
 
 namespace Ghosty\Component\Bag\Contracts;
 
-interface AbstractBagContract
+interface AbstractBagContract extends \Countable
 {
     public function all(): array;
 
