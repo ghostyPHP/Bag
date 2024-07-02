@@ -6,7 +6,7 @@ use Ghosty\Component\Bag\Contracts\AbstractBagContract;
 
 abstract class AbstractBag implements AbstractBagContract
 {
-    private array $items;
+    protected array $items;
 
     public function __construct(array $items)
     {
