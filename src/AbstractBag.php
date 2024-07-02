@@ -28,7 +28,7 @@ abstract class AbstractBag implements AbstractBagContract
         $this->items[$key] = $value;
     }
 
-    public function replace(string $items): void
+    public function replace(array $items): void
     {
         $this->items = $items;
     }
