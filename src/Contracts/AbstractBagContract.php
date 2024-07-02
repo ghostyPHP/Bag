@@ -10,7 +10,7 @@ interface AbstractBagContract
 
     public function add(string $key, mixed $value): void;
 
-    public function replace(string $items): void;
+    public function replace(array $items): void;
 
     public function has(string $key): bool;
 
