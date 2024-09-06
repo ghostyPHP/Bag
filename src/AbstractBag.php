@@ -3,6 +3,7 @@
 namespace Ghosty\Component\Bag;
 
 use Ghosty\Component\Bag\Contracts\AbstractBagContract;
+use Ghosty\Component\Bag\Exceptions\EntryNotFoundException;
 
 abstract class AbstractBag implements AbstractBagContract
 {
@@ -20,6 +21,9 @@ abstract class AbstractBag implements AbstractBagContract
 
     public function get(string $key): mixed
     {
+        if (!$this->has($key)) {
+            throw new EntryNotFoundException($key);
+        }
         return $this->items[$key];
     }
 
@@ -44,8 +48,11 @@ abstract class AbstractBag implements AbstractBagContract
 
     public function remove(string $key): static
     {
-        unset($this->items[$key]);
+        if (!$this->has($key)) {
+            throw new EntryNotFoundException($key);
+        }
 
+        unset($this->items[$key]);
         return $this;
     }
 
